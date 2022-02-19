@@ -15,17 +15,17 @@ module.exports = {
         .setDescription("Module to reload")
         .setRequired(true)
     )
-    .addBooleanOption((option) => {
+    .addBooleanOption((option) =>
       option
         .setName("returnout")
         .setDescription("Do you want to return the output?")
-        .setRequired(false);
-    }),
+        .setRequired(false)
+    ),
   //.addStringOption("code", "Code to evaluate", true),
   async execute(interaction, client) {
     if (interaction.user.id !== "581558160008019990") return;
     const i = await eval(interaction.options.getString("code"));
-    if (interaction.options.options.getBoolean("returnOut"))
+    if (interaction.options.options.getBoolean("returnout"))
       interaction.reply(`${i}`);
   },
 };
