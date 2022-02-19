@@ -1,10 +1,14 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-  helpdata: {},
+  helpdata: {
+    usage: "/ping",
+    description: "Replies with latency.",
+    name: "ping",
+  },
   data: new SlashCommandBuilder()
     .setName("ping")
-    .setDescription("Replies with Pong!"),
+    .setDescription("Replies with latency."),
   async execute(interaction, client) {
     let t1 = performance.now();
     await interaction.reply("Pong!");

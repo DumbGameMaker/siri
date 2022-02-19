@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const config = dotenv.config();
 const fs = require("fs");
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
-require("./deploy");
+
 client.commands = new Collection();
 const commandFiles = fs
   .readdirSync("./commands")
@@ -14,9 +14,29 @@ for (const file of commandFiles) {
   const command = require(`./commands/${file}`);
   client.commands.set(command.data.name, command);
 }
+console.log(client.commands);
 
-client.once("ready", () => {
+client.once("ready", async () => {
   console.log("Ready!");
+  /*const commandLists = await client.application.commands.fetch();
+  console.log(`\x1b[32m LOOK HERE`, [...commandLists.values()]);
+  console.log(client.commands["reload"]);
+  await require("./deploy");
+
+  const permissions = [
+    {
+      id: "581558160008019990",
+      type: "USER",
+      permission: true,
+    },
+  ];
+
+  if (!client.application?.owner) await client.application?.fetch();
+  for (i in [...commandLists.values()]) {
+    if (i.name == "reload") {
+      i.permissions.add({ permissions });
+    }
+  }*/
 });
 
 client.on("interactionCreate", async (interaction) => {
