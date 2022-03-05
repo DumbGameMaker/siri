@@ -38,21 +38,6 @@ for (const file of eventFiles) {
   client.on(command.on, command.createListener(client));
   process.stdout.write(`initializing events: added ${command.name}\n`);
 }
-process.stdout.write("reading autoActs from old\n");
-const autoActs = require("./old/autoActions");
-process.stdout.write("client.on guildMemberAdd\n");
-client.on("guildMemberAdd", (member) => {
-  autoActs.newMember(member);
-  process.stdout.write("new member ig\n");
-});
-process.stdout.write("client.on guildMemberRemove\n");
-client.on("guildMemberRemove", (member) => {
-  autoActs.oldMember(member);
-});
-process.stdout.write("client.on guildCreate\n");
-client.on("guildCreate", (guild) => {
-  autoActs.newGuild(guild);
-});
 process.stdout.write("client.once Ready\n");
 client.once("ready", async () => {
   process.stdout.write("Ready!\n");
