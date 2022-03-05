@@ -9,7 +9,11 @@ module.exports = {
   },
   data: new SlashCommandBuilder().setName("reload").setDescription("Reloads"),
   async execute(interaction, client) {
-    if (interaction.user.id !== "581558160008019990") return;
+    if (
+      interaction.user.id !== "581558160008019990" &&
+      interaction.user.id !== "272876963100753922"
+    )
+      return;
     let i = performance.now();
     if (false) {
     } else {

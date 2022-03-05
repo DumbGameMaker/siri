@@ -12,20 +12,21 @@ module.exports = {
     .addStringOption((option) =>
       option
         .setName("code")
-        .setDescription("Module to reload")
+        .setDescription("code to evaluate")
         .setRequired(true)
-    )
-    .addBooleanOption((option) =>
-      option
-        .setName("returnout")
-        .setDescription("Do you want to return the output?")
-        .setRequired(false)
     ),
   //.addStringOption("code", "Code to evaluate", true),
   async execute(interaction, client) {
-    if (interaction.user.id !== "581558160008019990") return;
+    if (
+      interaction.user.id !== "581558160008019990" &&
+      interaction.user.id !== "272876963100753922"
+    )
+      return;
     const i = await eval(interaction.options.getString("code"));
-    if (interaction.options.options.getBoolean("returnout"))
-      interaction.reply(`${i}`);
+
+    return interaction.reply({
+      content: `${i || "no output"}`,
+      ephemeral: true,
+    });
   },
 };

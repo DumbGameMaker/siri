@@ -1,3 +1,5 @@
+#!/usr/bin/env /usr/bin/node
+
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
