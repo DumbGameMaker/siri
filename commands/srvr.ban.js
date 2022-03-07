@@ -6,7 +6,7 @@ module.exports = {
   helpdata: {
     usage: "/ban <user> <user?> <user?>... <reason?> <time?>",
     description: "Bans a user or multiple.",
-    name: "",
+    name: "ban",
   },
   data: new SlashCommandBuilder().setName("ban").setDescription("test ..."),
   async execute(interaction, client) {},

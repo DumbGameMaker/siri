@@ -27,17 +27,21 @@ for (const file of commandFiles) {
   process.stdout.write(`creating collection: added ${command.data.name}\n`);
 }
 
-process.stdout.write("initializing events: reading events\n");
-const eventFiles = fs
-  .readdirSync("./events")
-  .filter((file) => file.endsWith(".js"));
-
-process.stdout.write("initializing events: start events\n");
-for (const file of eventFiles) {
-  const command = require(`./events/${file}`);
-  client.on(command.on, command.createListener(client));
-  process.stdout.write(`initializing events: added ${command.name}\n`);
-}
+process.stdout.write("reading autoActs from old\n");
+const autoActs = require("./old/autoActions");
+process.stdout.write("client.on guildMemberAdd\n");
+client.on("guildMemberAdd", (member) => {
+  autoActs.newMember(member, client);
+  process.stdout.write("new member ig\n");
+});
+process.stdout.write("client.on guildMemberRemove\n");
+client.on("guildMemberRemove", (member) => {
+  autoActs.oldMember(member, client);
+});
+process.stdout.write("client.on guildCreate\n");
+client.on("guildCreate", (guild) => {
+  autoActs.newGuild(guild, client);
+});
 process.stdout.write("client.once Ready\n");
 client.once("ready", async () => {
   process.stdout.write("Ready!\n");

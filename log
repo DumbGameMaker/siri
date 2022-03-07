@@ -1,0 +1,138 @@
+[33m[nodemon] 2.0.15[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node index.js`[39m
+starting...
+creating collections: define
+creating collection: reading commands
+creating collection: adding commands to collection
+eval
+code
+creating collection: added eval
+reload
+reboot
+creating collection: added reload
+template
+creating collection: added template
+about
+user
+creating collection: added about
+[
+  'base.eval.js',
+  'base.reload.js',
+  'base.template.js',
+  'misc.about.js',
+  'misc.help.js',
+  'misc.ping.js',
+  'srvr.ban.js',
+  'util.invite.js'
+]
+help
+creating collection: added help
+ping
+creating collection: added ping
+ban
+creating collection: added ban
+invite
+botid
+creating collection: added invite
+reading autoActs from old
+The autoActions.js file has been executed.
+client.on guildMemberAdd
+client.on guildMemberRemove
+client.on guildCreate
+client.once Ready
+client.on interactionCreate
+process.on exit
+Logging in...
+Ready!
+requiring deploy
+eval
+code
+reload
+reboot
+template
+about
+user
+help
+ping
+ban
+invite
+botid
+Done! took 1039.0272088050842ms
+Successfully registered application commands.
+
+[33m[nodemon] 2.0.15[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node index.js`[39m
+starting...
+creating collections: define
+creating collection: reading commands
+creating collection: adding commands to collection
+eval
+code
+creating collection: added eval
+reload
+reboot
+creating collection: added reload
+template
+creating collection: added template
+about
+user
+creating collection: added about
+[
+'base.eval.js',
+'base.reload.js',
+'base.template.js',
+'misc.about.js',
+'misc.help.js',
+'misc.ping.js',
+'srvr.ban.js',
+'util.invite.js'
+]
+help
+creating collection: added help
+ping
+creating collection: added ping
+ban
+creating collection: added ban
+invite
+botid
+creating collection: added invite
+reading autoActs from old
+The autoActions.js file has been executed.
+client.on guildMemberAdd
+client.on guildMemberRemove
+client.on guildCreate
+client.once Ready
+client.on interactionCreate
+process.on exit
+Logging in...
+Ready!
+requiring deploy
+eval
+code
+reload
+reboot
+template
+about
+user
+help
+ping
+ban
+invite
+botid
+Done! took 1052.890375137329ms
+Successfully registered application commands.
+{ usage: '/about <user?>', description: 'About Siri', name: 'about' }
+{
+usage: '/help',
+description: 'Hey Siri, How do i use this bot?',
+name: 'help'
+}
+{ usage: '/ping', description: 'Replies with latency.', name: 'ping' }
+byebye
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m

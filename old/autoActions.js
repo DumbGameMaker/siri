@@ -153,7 +153,7 @@ exports.newMember = (member) => {
       member.user.username +
       ". Welcome to" +
       member.guild.name +
-      "! Apple Computer Co.,Ltd. told me to tell you to read the rules and have fun!\n\n"
+      "! Apple Inc. told me to tell you to read the rules and have fun!\n\n"
   );
 
   const welcomeChannel = member.guild.channels.cache.find((channel) =>
@@ -168,7 +168,7 @@ exports.newMember = (member) => {
         member.user.id +
         ">, welcome to " +
         member.guild.name +
-        ". You should probably buy an Apple computer from Apple Computer Co.,Ltd.\n\n"
+        ". You should probably buy an Apple computer from Apple Inc.\n\n"
     );
   }
 
@@ -200,11 +200,11 @@ exports.oldMember = (member) => {
     welcomeChannel.send(
       "Oh no! " +
         member.user.username +
-        " has left the server. This makes Apple Computer Co.,Ltd. sad. :sob:"
+        " has left the server. This makes Apple Inc. sad. :sob:"
     );
   }
 };
 
-exports.newGuild = (guild) => {
+exports.newGuild = (guild, client) => {
   guild.emojis.create(client.user.avatarURL(), "Siri");
 };

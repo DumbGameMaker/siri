@@ -4,9 +4,9 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
   helpdata: {
-    usage: "/",
-    description: "",
-    name: "",
+    usage: "/template",
+    description: "Template.",
+    name: "Template",
   },
   data: new SlashCommandBuilder()
     .setName("template")

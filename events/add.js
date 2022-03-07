@@ -6,8 +6,8 @@ module.exports = {
   on: "guildCreate",
   name: "add",
   createListener(client) {
-    return async function execute() {
-      autoActs.newGuild(member);
+    return async function execute(guild) {
+      autoActs.newGuild(guild, client);
       process.stdout.write("new member ig\n");
     };
   },

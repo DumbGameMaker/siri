@@ -68,6 +68,6 @@ module.exports = {
           { label: "Server", value: "srvr" },
         ])
     );*/
-    await interaction.reply({ embeds: [start, me] });
+    await interaction.reply({ embeds: [start, me, ue, se] });
   },
 };
