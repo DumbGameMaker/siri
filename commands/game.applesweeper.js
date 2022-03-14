@@ -1,10 +1,11 @@
 #!/usr/bin/env /usr/bin/node
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
+const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 
 module.exports = {
   helpdata: {
-    usage: "/applesweeper <width?> <height?> <apples?>",
+    usage: "/applesweeper",
     description: "Minesweeper, but for apples.",
     name: "applesweeper",
   },
@@ -12,7 +13,9 @@ module.exports = {
     .setName("applesweeper")
     .setDescription(
       "Minesweeper, but for apples."
-    ).addIntegerOption(),
-  async execute(interaction, client) {},
+    ),
+  async execute(interaction, client) {
+
+  },
 };
 
