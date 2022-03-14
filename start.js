@@ -17,7 +17,7 @@ nodemon
   .on("crash", async function () {
     console.log("STOPP");
     await exec("git pull origin master");
-    nodemon.start();
+    nodemon.restart();
   })
   .on("restart", function (files) {
     console.log("App restarted due to: ", files);
