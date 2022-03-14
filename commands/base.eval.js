@@ -22,11 +22,11 @@ module.exports = {
       interaction.user.id !== "272876963100753922"
     )
       return;
+    interaction.defer()
+    if(interaction.options.getString("code").contains("interaction.reply")) return interaction.editReply("error fix ya shit");
     const i = await eval(interaction.options.getString("code"));
-
-    return interaction.reply({
-      content: `${i || "no output"}`,
-      ephemeral: true,
-    });
+    if(interaction.options.getString("code").contains("interaction.editReply")) return;
+    return interaction.editReply(`${i || "no output"}`
+    );
   },
 };
