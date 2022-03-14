@@ -8,7 +8,7 @@
     "nodemon": "^2.0.15"
   },
   "name": "bot",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "start.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
