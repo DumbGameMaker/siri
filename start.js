@@ -14,9 +14,9 @@ nodemon
   .on("start", function () {
     console.log("App has started");
   })
-  .on("crash", function () {
+  .on("crash", async function () {
     console.log("STOPP");
-    exec.exec("git pull origin master");
+    await exec("git pull origin master");
     nodemon.start();
   })
   .on("restart", function (files) {
