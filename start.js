@@ -16,7 +16,7 @@ nodemon
   })
   .on("crash", function () {
     console.log("STOPP");
-    ChildProcess.exec("git pull origin master");
+    exec.exec("git pull origin master");
     nodemon.start();
   })
   .on("restart", function (files) {
