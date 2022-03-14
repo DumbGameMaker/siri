@@ -130,7 +130,7 @@ module.exports = {
             .setDescription(`<@${interaction.options.get("user").value}>`)
             .setFields([
               {
-                name: "Bitflag",
+                name: "Bitflags",
                 value: (
                   "0000000000000000000" +
                   Number(JSON.stringify(user.flags)).toString(2)
