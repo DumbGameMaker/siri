@@ -31,6 +31,6 @@ module.exports = {
     let h = interaction.options.get("height") || 8;
     let m = interaction.options.get("mines") || 8;
 
-    interaction.reply(ms({width:w,height:h,mines:m}))
+    interaction.reply(new ms({width:w,height:h,mines:m,emote:"apple"}).start())
   },
 };

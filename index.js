@@ -6,9 +6,6 @@ const fs = require("fs");
 const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MEMBERS,
-    Intents.FLAGS.DIRECT_MESSAGES,
-    Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS,
   ],
 });
 process.stdout.write("starting...\n");
