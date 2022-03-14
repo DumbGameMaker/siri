@@ -158,7 +158,7 @@ module.exports = {
                 inline: true,
               },
               {
-                name: "HYPESQUAD_BALANCE",
+                name: "HYPESQUAD_BRAVERY",
                 value: (1 << 6) & user.flags ? "Yes" : "No",
                 inline: true,
               },
@@ -168,7 +168,7 @@ module.exports = {
                 inline: true,
               },
               {
-                name: "HYPESQUAD_BRAVERY",
+                name: "HYPESQUAD_BALANCE",
                 value: (1 << 8) & user.flags ? "Yes" : "No",
                 inline: true,
               },
