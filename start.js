@@ -1,6 +1,6 @@
 (async() => {
   var nodemon = require("nodemon");
-const ChildProcess = require("util").promisify(require("child_process").exec);
+const exec = require("util").promisify(require("child_process").exec);
 
 
 
