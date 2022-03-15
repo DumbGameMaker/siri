@@ -23,7 +23,7 @@ module.exports = {
     )
       return;
     interaction.deferReply()
-    if(interaction.options.getString("code").contains("interaction.reply")) return interaction.editReply("error fix ya shit");
+    // if(interaction.options.getString("code").contains("interaction.reply")) return interaction.editReply("error fix ya shit");
     const i = await eval(interaction.options.getString("code"));
     return interaction.editReply(`${i || "no output"}`
     );
