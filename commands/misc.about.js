@@ -251,6 +251,7 @@ module.exports = {
       });
       let std1 = await exec("git rev-parse --short HEAD");
       let std2 = await exec("cat ./package.json | grep version");
+      let std3 = await exec("git log -1 --pretty=%B");
       console.log(std1);
       embed
         .setTitle(`About`)
@@ -263,7 +264,7 @@ module.exports = {
               .toString()
               .replace(",", ".")}@${std1.stdout.trim()}`,
             inline: true,
-          },
+          },{name: 'Last commit',value:`${std1.stdout.trim()}: ${std3.stdout.trim()}`},
           {
             name: "Library",
             value: "Discord.js",
