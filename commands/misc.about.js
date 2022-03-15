@@ -258,14 +258,6 @@ module.exports = {
         .setDescription("Made by <@581558160008019990>")
         .addFields([
           {
-            name: `Version`,
-            value: `${/\d.\d.\d/g
-              .exec(std2.stdout)
-              .toString()
-              .replace(",", ".")}@${std1.stdout.trim()}`,
-            inline: true,
-          },{name: 'Last commit',value:`${std1.stdout.trim()}: ${std3.stdout.trim()}`},
-          {
             name: "Library",
             value: "Discord.js",
             inline: true,
@@ -290,6 +282,19 @@ module.exports = {
             value: String(MoTD),
             inline: true,
           },
+          {
+            name: `Version`,
+            value: `${/\d.\d.\d/g
+              .exec(std2.stdout)
+              .toString()
+              .replace(",", ".")}@${std1.stdout.trim()}`,
+            inline: true,
+          },
+          {
+            name: 'Last commit',
+            value:`${std1.stdout.trim()}: ${std3.stdout.trim()}`
+          },
+          
         ])
         .setAuthor(
           client.user.username,
