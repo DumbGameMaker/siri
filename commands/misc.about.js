@@ -291,8 +291,8 @@ module.exports = {
             inline: true,
           },
           {
-            name: 'Last commit',
-            value:`${std1.stdout.trim()}: ${std3.stdout.trim()}`
+            name: `Last commit (${std1.stdout.trim()})`,
+            value:`${std3.stdout.trim()}`
           },
           
         ])
