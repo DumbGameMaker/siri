@@ -3,15 +3,15 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 
-// const ms = require("discord.js-minesweeper");
-class ms {
+const ms = require("discord.js-minesweeper");
+/*class ms {
   constructor () {
 
   }
   start(){
     return "bugged"
   }
-}
+}*/
 module.exports = {
   helpdata: {
     usage: "/applesweeper <width?> <length?> <mines?>",
