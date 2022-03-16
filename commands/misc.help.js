@@ -23,8 +23,8 @@ module.exports = {
         .setDescription("Miscellaneous commands."),
       ue = new MessageEmbed().setTitle("Utils").setDescription("Utilities"),
       se = new MessageEmbed()
-        .setTitle("Server")
-        .setDescription("Server commands. Restricted."),
+        .setTitle("Games")
+        .setDescription("fun shit"),
       start = new MessageEmbed();
     for (const file of files) {
       let i = require(`./${file}`).helpdata;
