@@ -45,7 +45,7 @@ module.exports = {
             true
           );
         }
-        case "srvr": {
+        case "game": {
           se.addField(
             i.name,
             `Usage: ${i.usage}\nDescription: ${i.description}`,
