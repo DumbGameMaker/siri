@@ -11,7 +11,6 @@ module.exports = {
   },
   data: new SlashCommandBuilder()
     .setName("8ball")
-    .setDefaultPermission(false)
     .setDescription("8-ball know all.")
     .addStringOption((o) => {
       return o.setName("question").setDescription("question").setRequired(true);
