@@ -57,7 +57,7 @@ module.exports = {
       "Very doubtful",
       "i really do not know",
     ];
-    let answer = [yes, no, maybe][crypto.randomInt(0, 2)];
+    let answer = [yes, no, idk][crypto.randomInt(0, 2)];
 
     interaction.reply({
       embeds: [
