@@ -22,6 +22,6 @@ module.exports = {
       return;
     }
     interaction.editReply("WIP");
-    interaction.followUp();
+    interaction.followUp(siri.parse(interaction.options.question));
   },
 };
