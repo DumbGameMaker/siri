@@ -16,12 +16,11 @@ module.exports = {
       return o.setName("question").setDescription("question").setRequired(true);
     }),
   async execute(interaction, client) {
-    interaction.deferReply();
     if (!interaction.options.question) {
-      interaction.editReply("Please ask a question.");
+      interaction.reply("Please ask a question.");
       return;
     }
-    interaction.editReply("WIP");
+    interaction.reply("WIP");
     interaction.followUp(siri.parse(interaction.options.question));
   },
 };
