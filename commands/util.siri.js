@@ -16,7 +16,7 @@ module.exports = {
       return o.setName("question").setDescription("question").setRequired(true);
     }),
   async execute(interaction, client) {
-    if (!interaction.options.question) {
+    if (!interaction.options.getString("question")) {
       interaction.reply("Please ask a question.");
       return;
     }
