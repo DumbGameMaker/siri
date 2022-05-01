@@ -21,6 +21,6 @@ module.exports = {
       return;
     }
     interaction.reply("WIP");
-    interaction.followUp(siri.parse(interaction.options.question));
+    interaction.followUp(siri.parse(interaction.options.getString("question")));
   },
 };
