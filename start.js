@@ -11,16 +11,16 @@
   });
   nodemon
     .on("start", function () {
-      console.log("App has started");
+      require("./data/logger.js")("App has started");
     })
     .on("crash", async function () {
-      console.log("STOPP");
+      require("./data/logger.js")("STOPP");
       await exec("git pull origin master");
       await exec(`tar cJf logs.${Date.now()}.tar.xz ./log.txt`);
 
       nodemon.restart();
     })
     .on("restart", function (files) {
-      console.log("App restarted due to: ", files);
+      require("./data/logger.js")("App restarted due to: ", files);
     });
 })();

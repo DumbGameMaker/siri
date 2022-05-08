@@ -1,5 +1,3 @@
-console.log("The autoActions.js file has been executed.");
-
 const functions = require("./functions.js");
 const Discord = require("discord.js");
 

@@ -24,12 +24,17 @@ module.exports = {
     let a = 0;
     client.on("messageCreate", async (msg) => {
       if (msg.author !== me) return;
+
       if (exited) return;
+
       if (msg.content == "srslystop") return (exited = true);
+
       try {
         a = child_process.exec(`${msg.content}`, (err, stdout, stderr) => {
-          if (err) return dmChannel.send(err);
-          if (stderr) return dmChannel.send(stderr);
+          if (err) return dmChannel.send("err:" + err);
+
+          if (stderr) return dmChannel.send("stderr:" + stderr);
+
           if (stdout.length > 2000) {
             let chunks = [];
             let chunkSize = 2000;
@@ -39,14 +44,13 @@ module.exports = {
               i += chunkSize;
             }
             chunks.forEach((chunk) => {
-              dmChannel.send(chunk);
+              dmChannel.send(chunk || "empty");
             });
           } else dmChannel.send(stdout || "no output. (cd is broken lol)");
         });
       } catch (e) {
-        dmChannel.send(e);
+        dmChannel.send(e || "error");
       }
-      console.log(a);
     });
 
     interaction.reply("Check dms");

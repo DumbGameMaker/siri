@@ -7,7 +7,7 @@ const {
 const fs = require("fs");
 
 let files = fs.readdirSync("./commands").filter((file) => file.endsWith(".js"));
-console.log(files);
+require("../data/logger.js")(files);
 module.exports = {
   helpdata: {
     usage: "/help",
@@ -22,9 +22,7 @@ module.exports = {
         .setTitle("Misc")
         .setDescription("Miscellaneous commands."),
       ue = new MessageEmbed().setTitle("Utils").setDescription("Utilities"),
-      se = new MessageEmbed()
-        .setTitle("Games")
-        .setDescription("fun shit"),
+      se = new MessageEmbed().setTitle("Games").setDescription("fun shit"),
       start = new MessageEmbed();
     for (const file of files) {
       let i = require(`./${file}`).helpdata;
@@ -35,7 +33,7 @@ module.exports = {
             `Usage: ${i.usage}\nDescription: ${i.description}`,
             true
           );
-          console.log(i);
+          require("../data/logger.js")(i);
           break;
         }
         case "util": {

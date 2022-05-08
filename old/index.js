@@ -1,4 +1,6 @@
-console.log("index.js has been executed; bot startup initiated.");
+require("./data/logger.js")(
+  "index.js has been executed; bot startup initiated."
+);
 
 const functions = require("./functions.js");
 // functions.pingBot() //Only use if Bixby is hosted on repl.co. It should be commented out if the bot is not hosted on repl.co.
@@ -28,7 +30,9 @@ const client = new Discord.Client({
 client.login(process.env.CLIENT_TOKEN);
 
 client.on("ready", () => {
-  console.log(client.user.tag + " logged into its account and is online!👌");
+  require("./data/logger.js")(
+    client.user.tag + " logged into its account and is online!👌"
+  );
 
   client.user.setActivity(
     "the Apple Ecosystem",
