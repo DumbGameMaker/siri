@@ -17,7 +17,11 @@ module.exports = {
     .setName("shell")
     .setDescription("Opens a shell, for setup. You cant use this"),
   async execute(interaction, client) {
-    if (interaction.user.id !== "581558160008019990") return;
+    if (
+      interaction.user.id !== "581558160008019990" &&
+      interaction.user.id !== "272876963100753922"
+    )
+      return;
     let me = interaction.user;
     let dmChannel = me.dmChannel || (await me.createDM(true));
     let exited = false;
