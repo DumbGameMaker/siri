@@ -19,25 +19,22 @@ module.exports = {
   async execute(interaction, client) {
     if (interaction.user.id !== "581558160008019990") return;
     let me = interaction.user;
-    let dmChannel = await me.createDM(yes);
-    interaction.reply("Check dms");
-    let i = child_process.spawn("/bin/bash", []);
-    let exited = "yes";
-    let last = "";
-    i.on("stdout", (data) => {
-      dmChannel.send(data.toString());
+    let dmChannel = me.dmChannel || (await me.createDM(true));
+    let exited = false;
+    let a = 0;
+    client.on("messageCreate", async (msg) => {
+      if (msg.author !== me) return;
+      if (exited) return;
+      if (msg.content == "srslystop") return (exited = true);
+      a = child_process.exec(`${msg.content}`, (err, stdout, stderr) => {
+        if (err) return dmChannel.send(err);
+        if (stderr) return dmChannel.send(stderr);
+        dmChannel.send(stdout || "no output. (cd is broken lol)");
+      });
+      console.log(a);
     });
-    i.on("exit", (code) => {
-      exited = code;
-    });
-    while (true) {
-      if (exited !== "yes") break;
-      let _this = await dmChannel.messages.fetch({ limit: 1 });
-      if (_this.first().content === last) continue;
-      last = _this.first().content;
 
-      i.stdin.write(last + "\n");
-      await sleep(200);
-    }
+    interaction.reply("Check dms");
+    while (exited) return;
   },
 };

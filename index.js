@@ -4,9 +4,7 @@ const dotenv = require("dotenv");
 const config = dotenv.config();
 const fs = require("fs");
 const client = new Client({
-  intents: [
-    Intents.FLAGS.GUILDS,
-  ],
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.DIRECT_MESSAGES],
 });
 process.stdout.write("starting...\n");
 
