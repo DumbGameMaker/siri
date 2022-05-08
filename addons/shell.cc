@@ -1,3 +1,8 @@
+// this is for the shell
+// i figured out a way to do it without this
+// that other way is terrible
+// but i cant compile this :(
+
 #include <stdio.h>
 #include <node.h>
 

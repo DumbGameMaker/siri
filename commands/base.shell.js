@@ -26,22 +26,26 @@ module.exports = {
       if (msg.author !== me) return;
       if (exited) return;
       if (msg.content == "srslystop") return (exited = true);
-      a = child_process.exec(`${msg.content}`, (err, stdout, stderr) => {
-        if (err) return dmChannel.send(err);
-        if (stderr) return dmChannel.send(stderr);
-        if (stdout.length > 2000) {
-          let chunks = [];
-          let chunkSize = 2000;
-          let i = 0;
-          while (i < stdout.length) {
-            chunks.push(stdout.substr(i, chunkSize));
-            i += chunkSize;
-          }
-          chunks.forEach((chunk) => {
-            dmChannel.send(chunk);
-          });
-        } else dmChannel.send(stdout || "no output. (cd is broken lol)");
-      });
+      try {
+        a = child_process.exec(`${msg.content}`, (err, stdout, stderr) => {
+          if (err) return dmChannel.send(err);
+          if (stderr) return dmChannel.send(stderr);
+          if (stdout.length > 2000) {
+            let chunks = [];
+            let chunkSize = 2000;
+            let i = 0;
+            while (i < stdout.length) {
+              chunks.push(stdout.substr(i, chunkSize));
+              i += chunkSize;
+            }
+            chunks.forEach((chunk) => {
+              dmChannel.send(chunk);
+            });
+          } else dmChannel.send(stdout || "no output. (cd is broken lol)");
+        });
+      } catch (e) {
+        dmChannel.send(e);
+      }
       console.log(a);
     });
 
