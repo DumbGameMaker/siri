@@ -29,7 +29,18 @@ module.exports = {
       a = child_process.exec(`${msg.content}`, (err, stdout, stderr) => {
         if (err) return dmChannel.send(err);
         if (stderr) return dmChannel.send(stderr);
-        dmChannel.send(stdout || "no output. (cd is broken lol)");
+        if (stdout.length > 2000) {
+          let chunks = [];
+          let chunkSize = 2000;
+          let i = 0;
+          while (i < stdout.length) {
+            chunks.push(stdout.substr(i, chunkSize));
+            i += chunkSize;
+          }
+          chunks.forEach((chunk) => {
+            dmChannel.send(chunk);
+          });
+        } else dmChannel.send(stdout || "no output. (cd is broken lol)");
       });
       console.log(a);
     });
