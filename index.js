@@ -66,7 +66,9 @@ client.once("ready", async () => {
 process.stdout.write("client.on interactionCreate\n");
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) return;
-
+  if (interaction.commandName == "shell") {
+    interaction.reply("hi");
+  }
   const command = client.commands.get(interaction.commandName);
 
   if (!command) return;
