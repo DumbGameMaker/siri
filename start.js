@@ -4,7 +4,6 @@
   const fs = require("fs");
 
   await exec("git pull origin master ");
-  await exec("npm i");
   nodemon({
     script: "index.js",
     ext: "js json",
