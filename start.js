@@ -3,8 +3,8 @@
   const exec = require("util").promisify(require("child_process").exec);
   const fs = require("fs");
 
-  await exec("git pull origin master && npm i");
-
+  await exec("git pull origin master ");
+  await exec("npm i");
   nodemon({
     script: "index.js",
     ext: "js json",
