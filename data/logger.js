@@ -1,5 +1,5 @@
-const fs = require("node:fs");
-const { promisify } = require("node:util");
+const fs = require("fs");
+const { promisify } = require("util");
 let readFile = promisify(fs.readFile);
 
 fs.writeFileSync("../log.txt", " ");
