@@ -18,7 +18,7 @@ const commandFiles = fs
 process.stdout.write("creating collection: adding commands to collection\n");
 for (const file of commandFiles) {
   const command = require(`./commands/${file}`);
-  client.commands.set(command.data.name, command);
+  // client.commands.set(command.data.name, command);
   process.stdout.write(`creating collection: added ${command.data.name}\n`);
 }
 

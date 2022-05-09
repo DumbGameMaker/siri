@@ -71,3 +71,11 @@ App restarted due to:
 App has started
 base.eval.js,base.reload.js,base.shell.js,base.template.js,game.8ball.js,game.applesweeper.js,game.rps.js,misc.about.js,misc.help.js,misc.ping.js,util.invite.js,util.siri.js
 Successfully registered application commands.
+App has started
+base.eval.js,base.reload.js,base.shell.js,base.template.js,game.8ball.js,game.applesweeper.js,game.rps.js,misc.about.js,misc.help.js,misc.ping.js,util.invite.js,util.siri.js
+Successfully registered application commands.
+1
+[object Object]
+App has started
+base.eval.js,base.reload.js,base.shell.js,base.template.js,game.8ball.js,game.applesweeper.js,game.rps.js,misc.about.js,misc.help.js,misc.ping.js,util.invite.js,util.siri.js
+Successfully registered application commands.
