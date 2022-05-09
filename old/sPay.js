@@ -1,4 +1,4 @@
-require("./data/logger.js")("The sPay.js file has been executed.");
+console.log("The sPay.js file has been executed.");
 
 const functions = require("./functions.js");
 const Discord = require("discord.js");

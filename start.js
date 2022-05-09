@@ -8,18 +8,20 @@
     script: "index.js",
     ext: "js json",
   });
+  var restarted = false;
   nodemon
     .on("start", function () {
-      require("./data/logger.js")("App has started");
+      console.log("App has started");
     })
     .on("crash", async function () {
-      require("./data/logger.js")("STOPP");
+      console.log("STOPP");
       await exec("git pull origin master");
-      await exec(`tar cJf logs.${Date.now()}.tar.xz ./log.txt`);
       await exec("npm i");
-      nodemon.restart();
+      if (!restarted) nodemon.restart();
     })
     .on("restart", function (files) {
-      require("./data/logger.js")("App restarted due to: ", files);
+      restarted = true;
+      console.log("\n\n------RESTARTED------\n\n");
+      console.log("App restarted due to: ", files);
     });
 })();

@@ -1,4 +1,4 @@
-require("./data/logger.js")("The utilCmds.js file has been executed.");
+console.log("The utilCmds.js file has been executed.");
 
 const functions = require("./functions.js");
 
@@ -195,8 +195,8 @@ exports.newMsg = async (message) => {
           var emojiID = partialEmojiID.substr(0, partialEmojiID.length - 1);
           var partialEmojiName = emoji.substr(2, emoji.length);
           var emojiName = partialEmojiName.substr(0, emoji.length - 22);
-          require("./data/logger.js")(emojiName);
-          require("./data/logger.js")(emojiID);
+          console.log(emojiName);
+          console.log(emojiID);
 
           if (emoji.startsWith("<a:")) {
             message.guild.emojis.create(
@@ -278,7 +278,7 @@ exports.newMsg = async (message) => {
       if (message.content.toLowerCase().includes("crash")) {
         if (message.author.id == 789658327348936744n) {
           await message.channel.send("Fine Ozarks.");
-          require("./data/logger.js")("You told me to crash.");
+          console.log("You told me to crash.");
           process.exit();
         } else {
           message.channel.send(
@@ -321,10 +321,7 @@ exports.newMsg = async (message) => {
             status: status,
           };
 
-          require("./data/logger.js")(
-            "Ready to Tweet article:\n\t",
-            postBody.status
-          );
+          console.log("Ready to Tweet article:\n\t", postBody.status);
           oauth.post(
             "https://api.twitter.com/1.1/statuses/update.json",
             twitter_user_access_token, // oauth_token (user access token)
@@ -333,9 +330,9 @@ exports.newMsg = async (message) => {
             "", // post content type ?
             function (err, data, res) {
               if (err) {
-                require("./data/logger.js")(err);
+                console.log(err);
               } else {
-                require("./data/logger.js")(data);
+                console.log(data);
               }
             }
           );
@@ -508,7 +505,7 @@ exports.newMsg = async (message) => {
       } catch (err) {
         message.channel.send(err.message);
 
-        require("./data/logger.js")(err);
+        console.log(err);
       }
     } else {
       message.channel.send(

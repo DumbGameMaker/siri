@@ -1,4 +1,4 @@
-require("./data/logger.js")("The postSlashCmds.js file has been executed.");
+console.log("The postSlashCmds.js file has been executed.");
 
 exports.ready = (client) => {
   client.api.applications(client.user.id).commands.post({

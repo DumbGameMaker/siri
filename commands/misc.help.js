@@ -7,7 +7,7 @@ const {
 const fs = require("fs");
 
 let files = fs.readdirSync("./commands").filter((file) => file.endsWith(".js"));
-require("../data/logger.js")(files);
+console.log(files);
 module.exports = {
   helpdata: {
     usage: "/help",
@@ -33,7 +33,7 @@ module.exports = {
             `Usage: ${i.usage}\nDescription: ${i.description}`,
             true
           );
-          require("../data/logger.js")(i);
+          console.log(i);
           break;
         }
         case "util": {

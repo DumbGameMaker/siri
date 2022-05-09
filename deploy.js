@@ -18,7 +18,5 @@ const rest = new REST({ version: "9" }).setToken(process.env.CLIENT_TOKEN);
 
 return rest
   .put(Routes.applicationCommands(process.env.CLIENT_ID), { body: commands })
-  .then(() =>
-    require("./data/logger.js")("Successfully registered application commands.")
-  )
+  .then(() => console.log("Successfully registered application commands."))
   .catch(console.error);

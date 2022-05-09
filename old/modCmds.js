@@ -1,4 +1,4 @@
-require("./data/logger.js")("The modCmds.js file has been executed.");
+console.log("The modCmds.js file has been executed.");
 
 const Discord = require("discord.js");
 const functions = require("./functions.js");

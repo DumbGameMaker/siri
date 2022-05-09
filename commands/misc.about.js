@@ -25,11 +25,11 @@ module.exports = {
   async execute(interaction, client) {
     let embed = new MessageEmbed();
     if (interaction.options.get("user")) {
-      require("../data/logger.js")("hi");
+      console.log("hi");
       let user = await client.users.fetch(
         interaction.options.get("user").value
       );
-      require("../data/logger.js")(user);
+      console.log(user);
       embed
         .setTitle(`About`)
         .setDescription(`<@${interaction.options.get("user").value}>`)
@@ -58,7 +58,7 @@ module.exports = {
           {
             name: "Hypesquad house",
             value: (() => {
-              require("../data/logger.js")(user.flags);
+              console.log(user.flags);
               if ((user.flags & 0b00000001000000) == 0b00000001000000)
                 return "Bravery";
               if ((user.flags & 0b00000010000000) == 0b00000010000000)
@@ -218,7 +218,7 @@ module.exports = {
       });
 
       collector.on("end", async (collected) => {
-        require("../data/logger.js")(`Collected ${collected.size} items`);
+        console.log(`Collected ${collected.size} items`);
         if (a == 0)
           await reply.update({
             embeds: [embed],
@@ -245,14 +245,14 @@ module.exports = {
           });
       });
     } else {
-      require("../data/logger.js")(1);
+      console.log(1);
       let MoTD = await readFile("./MoTD.txt", (e, o) => {
         return o;
       });
       let std1 = await exec("git rev-parse --short HEAD");
       let std2 = await exec("cat ./package.json | grep version");
       let std3 = await exec("git log -1 --pretty=%B");
-      require("../data/logger.js")(std1);
+      console.log(std1);
       embed
         .setTitle(`About`)
         .setDescription("Made by <@581558160008019990>")
