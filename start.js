@@ -3,7 +3,7 @@
   const exec = require("util").promisify(require("child_process").exec);
   const fs = require("fs");
 
-  await exec("git pull origin master");
+  await exec("git pull origin master && npm i");
 
   nodemon({
     script: "index.js",
@@ -17,7 +17,7 @@
       require("./data/logger.js")("STOPP");
       await exec("git pull origin master");
       await exec(`tar cJf logs.${Date.now()}.tar.xz ./log.txt`);
-
+      await exec("npm i");
       nodemon.restart();
     })
     .on("restart", function (files) {
