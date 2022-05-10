@@ -18,7 +18,7 @@ const commandFiles = fs
 process.stdout.write("creating collection: adding commands to collection\n");
 for (const file of commandFiles) {
   const command = require(`./commands/${file}`);
-  // client.commands.set(command.data.name, command);
+  client.commands.set(command.data.name, command);
   process.stdout.write(`creating collection: added ${command.data.name}\n`);
 }
 
@@ -66,14 +66,13 @@ client.once("ready", async () => {
 process.stdout.write("client.on interactionCreate\n");
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) return;
-  if (interaction.commandName == "shell") {
-    interaction.reply("hi");
-  }
-  const command = client.commands.get(interaction.commandName);
 
+  const command = client.commands.get(interaction.commandName);
+  console.log(command.data.name);
   if (!command) return;
 
   try {
+    console.log("command: " + interaction.commandName + " was run");
     await command.execute(interaction, client);
   } catch (error) {
     console.error(error);
