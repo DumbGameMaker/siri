@@ -18,6 +18,7 @@ module.exports = {
         .setRequired(true);
     }),
   async execute(interaction, client) {
+    /*
     if (
       interaction.user.id !== "581558160008019990" &&
       interaction.user.id !== "272876963100753922"
@@ -46,6 +47,6 @@ module.exports = {
         interaction.reply(`error: ${e}`);
       }
       interaction.reply(`Done! took ${performance.now() - i}ms`);
-    }
+    }*/
   },
 };

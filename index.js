@@ -66,7 +66,25 @@ client.once("ready", async () => {
 process.stdout.write("client.on interactionCreate\n");
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) return;
-
+  if (
+    interaction.commandName == "reload" &&
+    ["272876963100753922", "581558160008019990"].contains(interaction.user.id)
+  ) {
+    // hardwire reload in case of fuckup
+    interaction.deferReply();
+    let i = performance.now();
+    interaction.editReply("Reloading...");
+    require("child_process").exec(
+      "git pull origin main |& tee >(gz > /tmp/log.gz)"
+    );
+    interaction.editReply("Git fetched. Sending logs...");
+    interaction.user.dmChannel.send(
+      new Discord.MessageAttachment("/tmp/log.gz")
+    );
+    interaction.editReply("Logs sent. Restarting...");
+    interaction.followUp("Took " + (performance.now() - i) + "ms");
+    process.exit();
+  }
   const command = client.commands.get(interaction.commandName);
   console.log(command.data.name);
   if (!command) return;
