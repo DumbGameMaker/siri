@@ -19,6 +19,9 @@
       await exec("npm i");
       if (!restarted) nodemon.restart();
     })
+    .on("exit", function () {
+      nodemon.restart();
+    })
     .on("restart", function (files) {
       restarted = true;
       console.log("\n\n------RESTARTED------\n\n");
