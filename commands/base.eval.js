@@ -23,10 +23,9 @@ module.exports = {
     )
       return;
     interaction.deferReply();
-    // if(interaction.options.getString("code").contains("interaction.reply")) return interaction.editReply("error fix ya shit");
-    const i = await eval(
-      `(async()=>{${interaction.options.getString("code")}})()`
-    );
-    return interaction.editReply(`${i || "no output"}`);
+    interaction.editReply("working");
+    const i = eval(await interaction.options.get("code"));
+    interaction.editReply("done");
+    return interaction.editReply((i || "no output"));
   },
 };
