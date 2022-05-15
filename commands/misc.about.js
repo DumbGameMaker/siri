@@ -86,12 +86,22 @@ module.exports = {
           },
           {
             name: "Joined at",
-            value: new Date(
-              client.guilds.cache
-                .get(interaction.guild.id)
-                .members.cache.get(user.id)
-                .joinedAt.toString()
-            ).toUTCString(),
+            value: (() => {
+              let joinDate;
+              if(typeof interaction.guild !== undefined)
+                joinDate = new Date(
+                client.guilds.cache
+                  .get(interaction.guild.id)
+                  .members.cache.get(user.id)
+                 .joinedAt.toString()
+                ).toUTCString();
+             if(!intertaction.guild){
+               joinDate = new Date(
+                 user.joinedAd.toString()
+               ).toUTCString();
+             }
+             return joinDatel
+            })(),
             inline: true,
           },
         ])
