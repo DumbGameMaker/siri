@@ -100,7 +100,7 @@ module.exports = {
                  user.joinedAd.toString()
                ).toUTCString();
              }
-             return joinDatel
+             return joinDate;
             })(),
             inline: true,
           },
