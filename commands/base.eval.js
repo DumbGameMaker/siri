@@ -22,10 +22,9 @@ module.exports = {
       interaction.user.id !== "272876963100753922"
     )
       return;
-    interaction.deferReply();
-    interaction.editReply("working");
+    await interaction.Reply("working");
     const i = eval(await interaction.options.get("code"));
     interaction.editReply("done");
-    return interaction.editReply((i || "no output"));
+    return interaction.editReply(i || "no output");
   },
 };
