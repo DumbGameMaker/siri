@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "Run",
+            "program": "/usr/bin/node",
+            "args": ["./start.js"]
+        }
+    ]
+}

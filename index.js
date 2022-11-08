@@ -21,7 +21,8 @@ command = {
         return option.setName("code").setDescription("ee").setRequired(true);
     }),
   async execute(interaction, client) {
-      interaction.reply(require('./components/tokenizer').tokenizer(interaction.options.get("code")));
+      console.log(await interaction.options.get("code"))
+      interaction.reply(require('./components/tokenizer').tokenizer((await interaction.options.get("code")).value, interaction));
   },
 };
 client.commands.set(command.data.name, command);

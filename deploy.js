@@ -7,7 +7,9 @@ const commands = [
   new SlashCommandBuilder()
     .setName("heysiri")
     .setDefaultPermission(false)
-    .setDescription("Hey Siri!"),
+  .setDescription("Hey Siri!").addStringOption((option)=>{
+      return option.setName("code").setDescription("ee").setRequired(true);
+  }),
 ];
 
 const rest = new REST({ version: "9" }).setToken(process.env.CLIENT_TOKEN);
