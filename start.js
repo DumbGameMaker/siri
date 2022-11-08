@@ -3,7 +3,7 @@
   const exec = require("util").promisify(require("child_process").exec);
   const fs = require("fs");
 
-  await exec("git pull origin siri");
+ // await exec("git pull origin siri");
   nodemon({
     script: "index.js",
     ext: "js json",
@@ -15,8 +15,8 @@
     })
     .on("crash", async function () {
       console.log("STOPP");
-      await exec("git pull origin master");
-      await exec("npm i");
+      //await exec("git pull origin master");
+      //await exec("npm i");
       if (!restarted) nodemon.restart();
     })
     .on("exit", function () {

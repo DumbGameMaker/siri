@@ -3,7 +3,6 @@ const fs = require("fs");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 require("dotenv").config();
-const { SlashCommandBuilder } = require("@discordjs/builders");
 const commands = [
   new SlashCommandBuilder()
     .setName("heysiri")

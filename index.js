@@ -16,9 +16,12 @@ command = {
   data: new SlashCommandBuilder()
     .setName("heysiri")
     .setDefaultPermission(false)
-    .setDescription("Hey Siri!"),
+    .setDescription("Hey Siri!")
+    .addStringOption((option)=>{
+        return option.setName("code").setDescription("ee").setRequired(true);
+    }),
   async execute(interaction, client) {
-    interaction.reply("This does nothing right now.");
+      interaction.reply(require('./components/tokenizer').tokenizer(interaction.options.get("code")));
   },
 };
 client.commands.set(command.data.name, command);
